@@ -19,6 +19,7 @@ class CarMake(models.Model):
     def __str__(self):
         return self.name
 
+
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many
 # Car Models, using ForeignKey field)
@@ -29,7 +30,9 @@ class CarMake(models.Model):
 # - Any other fields you would like to include in car model
 # - __str__ method to print a car make object
 class CarModel(models.Model):
-    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)  # Many-to-One relationship
+    
+    # Many-to-One relationship
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     CAR_TYPES = [
         ('MICRO', 'Micro'),
@@ -58,5 +61,3 @@ class CarModel(models.Model):
 
     def __str__(self):
         return self.name  # Return the name as the string representation
-
-
