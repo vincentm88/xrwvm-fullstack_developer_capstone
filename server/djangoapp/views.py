@@ -41,7 +41,7 @@ def login_user(request):
 def logout_request(request):
 
     logout(request)
-    data = {"userName":""}
+    data = {"userName": ""}
     return JsonResponse(data)
 
 
@@ -63,6 +63,7 @@ def registration(request):
     except Exception as e:
         # If not, simply log this is a new user
         logger.debug("{} is new user".format(username))
+        logger.debug("{} error".format(e))
 
 
     # If it is a new user
@@ -104,8 +105,9 @@ def get_cars(request):
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 # def get_dealer_reviews(request,dealer_id):
-# Update the `get_dealerships` 
-# render list of dealerships all by default, particular state if state is passed
+# Update the `get_dealerships`
+# render list of dealerships all by default
+# particular state if state is passed
 def get_dealerships(request, state="All"):
 
     if (state == "All"):
