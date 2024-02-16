@@ -65,7 +65,6 @@ def registration(request):
         logger.debug("{} is new user".format(username))
         logger.debug("{} error".format(e))
 
-
     # If it is a new user
     if not username_exist:
 
